@@ -1,0 +1,43 @@
+@startuml
+
+title Aktorok - szerepkörök
+
+skinparam actorStyle awesome
+left to right direction
+
+"Teljeskörű \nfelhasználó" as SuperUser
+"Felhasználó" as User
+"Felhasználók" as Users
+"Rendszergazda" as Admin
+
+    Admin --|> Users
+    note top of Admin
+        rendszergazda felhasználó, mely
+        esetlegesen szükséges lehet, ha a
+        szervezeti hierarchia karbantartása
+        nem felhasználói feladat
+    end note
+    User -|> Users
+    note right of User
+        átlagos felhasználó, mely feladata
+        a szervezeti hierarchiából adott
+        személyek keresése és azok új/meglévő
+        eseményhez rendelése
+    end note
+    SuperUser -|> User
+    note right of SuperUser
+        az átlagos felhasználón felül képes
+        új személyek felvételére, szervezeti
+        hierarchiában áthelyezésére, a személyek
+        adatainak módosítására
+    end note
+    note bottom of Users
+        bármely típusú, a megoldással kapcsolatba
+        lépő felhasználót szimbolizál, mely képes
+        a megoldásba belépni és a szerepköre szerinti
+        műveleteket elvégezni
+    end note
+
+
+
+@enduml

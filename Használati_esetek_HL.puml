@@ -1,0 +1,59 @@
+@startuml
+
+title Magas szintű használati esetek
+
+skinparam actorStyle awesome
+left to right direction
+
+"Felhasználók" as Users
+"Teljeskörű \nfelhasználó" as SuperUser
+"Felhasználó" as User
+"Rendszergazda" as Admin
+
+(Belépés) as Login
+rectangle "Szervezet" {
+    (Szervezet böngészése) as DisplayHierarchy
+    (Szervezeti szint \nlétrehozása) as CreateOrg
+    (Szervezeti szint \nszerkesztése/ \náthelyezée) as EditOrg
+    (Szervezeti szint \ntörlése) as DeleteOrg
+}
+rectangle "Személy" {
+    (Személyek megtekintése) as DisplayPeople
+    (Személy szerkesztése) as EditPerson
+    (Személy létrehozása) as CreatePerson
+    (Személy szervezeti \n szinthez \nrendelése) as AssignPerson
+}
+rectangle "Esemény" {
+    (Esemény létrehozása) as CreateEvent
+    (Esemény szerkesztése) as EditEvent
+    (Esemény törlése) as DeleteEvent
+    (Esemény megtekintése) as DisplayEvent
+    (Személy eseményhez \nadása) as AssignPersonEvent
+}
+
+Users -up-> Login
+    Admin -|> Users
+    SuperUser -right-|> User
+    User -up-|> Users
+
+
+User -left-> DisplayHierarchy
+SuperUser -left-> CreateOrg #blue;line.dashed : kell?
+SuperUser -left-> EditOrg #blue;line.dashed : kell?
+SuperUser -left-> DeleteOrg #blue;line.dashed : kell?
+Admin -up-> CreateOrg #green;line.dashed : kell?
+Admin -up-> EditOrg #green;line.dashed : kell?
+Admin -up-> DeleteOrg #green;line.dashed : kell?
+
+SuperUser -down-> EditPerson
+SuperUser -down-> CreatePerson
+SuperUser -down-> AssignPerson
+User --> DisplayPeople
+
+User -up-> CreateEvent
+User -up-> DisplayEvent
+User -up-> EditEvent
+User -up-> DeleteEvent
+User -up-> AssignPersonEvent
+
+@enduml
