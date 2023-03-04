@@ -1,0 +1,87 @@
+@startuml
+
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 200
+skinparam roundcorner 10
+skinparam ParticipantPadding 20
+skinparam BoxPadding 10
+
+actor User as U_User
+participant UI as P_UI
+participant API as P_API
+database DB as D_DB
+
+activate U_User
+
+
+group UC: Személylista megtekintése
+    U_User->P_UI : Keresés vagy egyéb személyek listáját megjelenítő funkció indítása
+    activate P_UI
+        P_UI->P_API : get personlist <searchtext>
+        activate P_API
+            P_API->P_API : SQL lekérdezés (SELECT) összeállítása
+            P_API->D_DB : lekérdezés elküldése
+            activate D_DB
+                return lekérdezés eredménye
+            deactivate D_DB
+            P_API-->P_UI : személylista
+        deactivate P_API
+        P_UI->P_UI : megjelenítés
+        P_UI -> U_User : eredmény megtekintése
+    deactivate P_UI
+end
+...
+group UC: Személy megtekintése
+    U_User->P_UI : Egy adott személy kiválasztása és a tulajdonságainak megjelenítése
+    activate P_UI
+        P_UI->P_API : get personproperties <personid>
+        activate P_API
+            P_API->P_API : SQL lekérdezés (SELECT) összeállítása
+            P_API->D_DB : lekérdezés elküldése
+            activate D_DB
+                return lekérdezés eredménye
+            deactivate D_DB
+            P_API-->P_UI : személy tulajdonságai
+        deactivate P_API
+        P_UI->P_UI : személy tulajdonságai ablak megjelenítése
+        P_UI->P_UI : személy tulajdonságainak betöltése
+        P_UI -> U_User : eredmény megtekintése
+    deactivate P_UI
+end
+...
+
+group UC: Személy szerkesztése és UC: Személy létrehozása
+    alt UC: Személy szerkesztése
+        U_User->P_UI : Egy személy kiválasztása és szerkesztésének indítása
+        activate P_UI
+    else UC: Személy létrehozása
+        U_User->P_UI : Egy új személy létrehozásának indítása
+    end
+    activate P_UI
+        P_UI->P_UI : személy tulajdonságai komponens megjelenítése
+        opt UC: Személy szerkesztése
+            note over P_UI : UC: Személy megtekintése API végrehajtása \na személy tulajdonságai komponens feltöltésére
+        end
+        P_UI->P_UI : a tulajdonságok átszerkesztésének biztosítása
+        P_UI->P_UI : megadott adatok validásása, korrekció kérése
+        alt UC: Személy szerkesztése
+            P_UI->P_API : set personproperties [changeable attributes] [id]
+            activate P_API
+                P_API->P_API : SQL lekérdezés (UPDATE) összeállítása
+        else UC: Személy létrehozása
+                P_UI->P_API : set personproperties [changeable attributes]
+                P_API->P_API : SQL lekérdezés (INSERT) összeállítása
+        end
+                P_API->D_DB : lekérdezés elküldése
+                activate D_DB
+                    return lekérdezés eredménye
+                deactivate D_DB
+                P_API-->P_UI : módosítás sikeresen végrehajtva
+        deactivate P_API
+        P_UI->P_UI : eredmény/hiba megjelenítése
+        P_UI -> U_User : eredmény megtekintése
+    deactivate P_UI
+end
+...
+
+@enduml
