@@ -17,7 +17,7 @@ activate U_User
 group UC: Személylista megtekintése
     U_User->P_UI : Keresés vagy egyéb személyek listáját megjelenítő funkció indítása
     activate P_UI
-        P_UI->P_API : get personlist <searchtext>
+        P_UI->P_API : get personlist [in: opt_searchtext]
         activate P_API
             P_API->P_API : SQL lekérdezés (SELECT) összeállítása
             P_API->D_DB : lekérdezés elküldése
@@ -34,7 +34,7 @@ end
 group UC: Személy megtekintése
     U_User->P_UI : Egy adott személy kiválasztása és a tulajdonságainak megjelenítése
     activate P_UI
-        P_UI->P_API : get personproperties <personid>
+        P_UI->P_API : get personproperties [in: personid]
         activate P_API
             P_API->P_API : SQL lekérdezés (SELECT) összeállítása
             P_API->D_DB : lekérdezés elküldése
@@ -65,11 +65,11 @@ group UC: Személy szerkesztése és UC: Személy létrehozása
         P_UI->P_UI : a tulajdonságok átszerkesztésének biztosítása
         P_UI->P_UI : megadott adatok validásása, korrekció kérése
         alt UC: Személy szerkesztése
-            P_UI->P_API : set personproperties [changeable attributes] [id]
+            P_UI->P_API : set personproperties [in: personid; changeable attributes] 
             activate P_API
                 P_API->P_API : SQL lekérdezés (UPDATE) összeállítása
         else UC: Személy létrehozása
-                P_UI->P_API : set personproperties [changeable attributes]
+                P_UI->P_API : set personproperties [in: changeable attributes]
                 P_API->P_API : SQL lekérdezés (INSERT) összeállítása
         end
                 P_API->D_DB : lekérdezés elküldése
