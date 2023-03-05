@@ -18,7 +18,8 @@ rectangle "Szervezet" {
     (Szervezeti szint \ntörlése) as DeleteOrg
 }
 rectangle "Személy" {
-    (Személyek megtekintése) as DisplayPeople
+    (Személylista megtekintése) as DisplayPeople
+    (Személy megtekintése) as DisplayPerson
     (Személy szerkesztése) as EditPerson
     (Személy létrehozása) as CreatePerson
     (Személy szervezeti \n szinthez \nrendelése) as AssignPerson
@@ -30,6 +31,9 @@ rectangle "Esemény" {
     (Esemény megtekintése) as DisplayEvent
     (Személy eseményhez \nadása) as AssignPersonEvent
 }
+
+EditPerson -|> DisplayPerson
+CreatePerson -up-|> DisplayPerson
 
 Users -up-> Login
     Admin -|> Users
@@ -49,6 +53,7 @@ SuperUser -down-> EditPerson
 SuperUser -down-> CreatePerson
 SuperUser -down-> AssignPerson
 User --> DisplayPeople
+User --> DisplayPerson
 
 User -up-> CreateEvent
 User -up-> DisplayEvent
