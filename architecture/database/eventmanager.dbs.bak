@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MariaDb" id="Project-626" database="MariaDb" >
+	<schema name="EventMgrDB" >
+		<table name="Event" row_count="1" spec="" >
+			<column name="EventID" type="INT" length="10" jt="4" mandatory="y" unsigned="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="Name" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="Description" type="VARCHAR" length="1000" jt="12" />
+			<column name="Location" type="VARCHAR" length="200" jt="12" />
+			<column name="Date" prior="date" type="DATE" jt="91" >
+				<defo><![CDATA[curdate()]]></defo>
+			</column>
+			<index name="pk_event" unique="PRIMARY_KEY" >
+				<column name="EventID" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci]]></options>
+		</table>
+		<table name="Organization" row_count="8" spec="" >
+			<column name="OrganizationID" type="INT" length="10" jt="4" mandatory="y" unsigned="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="Toplevel" type="BOOLEAN" length="1" jt="-7" mandatory="y" />
+			<column name="Name" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="FK_ParentOrganizationID" type="INT" length="10" jt="4" unsigned="y" />
+			<index name="pk_organization" unique="PRIMARY_KEY" >
+				<column name="OrganizationID" />
+			</index>
+			<index name="FK_Organization_Organization" unique="NORMAL" >
+				<column name="FK_ParentOrganizationID" />
+			</index>
+			<fk name="FK_Organization_Organization" to_schema="EventMgrDB" to_table="Organization" options="ON DELETE NO ACTION ON UPDATE NO ACTION" >
+				<fk_column name="FK_ParentOrganizationID" pk="OrganizationID" />
+			</fk>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci]]></options>
+		</table>
+		<table name="Person" row_count="3" spec="" >
+			<column name="PersonID" type="INT" length="10" jt="4" mandatory="y" unsigned="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="FirstName" prior="FIrstName" type="VARCHAR" length="100" jt="12" >
+				<defo><![CDATA['']]></defo>
+			</column>
+			<column name="LastName" type="VARCHAR" length="100" jt="12" >
+				<defo><![CDATA['']]></defo>
+			</column>
+			<column name="Notes" type="VARCHAR" length="2000" jt="12" >
+				<comment><![CDATA[Allergy, pereferences, other - free text]]></comment>
+			</column>
+			<index name="pk_person" unique="PRIMARY_KEY" >
+				<column name="PersonID" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci]]></options>
+		</table>
+		<table name="PersonToEvent" row_count="2" spec="" >
+			<column name="FK_EventID" type="INT" length="10" jt="4" mandatory="y" unsigned="y" />
+			<column name="FK_PersonID" type="INT" length="10" jt="4" mandatory="y" unsigned="y" />
+			<column name="Created" prior="created" type="DATETIME" jt="93" >
+				<defo><![CDATA[current_timestamp()]]></defo>
+			</column>
+			<index name="FK_PersonToEvent_Event" unique="NORMAL" >
+				<column name="FK_EventID" />
+			</index>
+			<index name="FK_PersonToEvent_Person" unique="NORMAL" >
+				<column name="FK_PersonID" />
+			</index>
+			<fk name="FK_PersonToEvent_Event" to_schema="EventMgrDB" to_table="Event" options="ON DELETE NO ACTION ON UPDATE NO ACTION" >
+				<fk_column name="FK_EventID" pk="EventID" />
+			</fk>
+			<fk name="FK_PersonToEvent_Person" to_schema="EventMgrDB" to_table="Person" options="ON DELETE NO ACTION ON UPDATE NO ACTION" >
+				<fk_column name="FK_PersonID" pk="PersonID" />
+			</fk>
+			<options><![CDATA[ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci]]></options>
+		</table>
+		<table name="PersonToOrganization" row_count="3" spec="" >
+			<column name="FK_PersonID" type="INT" length="10" jt="4" mandatory="y" unsigned="y" />
+			<column name="FK_OrganizationID" type="INT" length="10" jt="4" mandatory="y" unsigned="y" />
+			<column name="Role" type="VARCHAR" length="100" jt="12" mandatory="y" >
+				<defo><![CDATA['']]></defo>
+			</column>
+			<index name="FK_PersonToOrganization_Person" unique="NORMAL" >
+				<column name="FK_PersonID" />
+			</index>
+			<index name="FK_PersonToOrganization_Organization" unique="NORMAL" >
+				<column name="FK_OrganizationID" />
+			</index>
+			<fk name="FK_PersonToOrganization_Organization" to_schema="EventMgrDB" to_table="Organization" options="ON DELETE NO ACTION ON UPDATE NO ACTION" >
+				<fk_column name="FK_OrganizationID" pk="OrganizationID" />
+			</fk>
+			<fk name="FK_PersonToOrganization_Person" to_schema="EventMgrDB" to_table="Person" options="ON DELETE NO ACTION ON UPDATE NO ACTION" >
+				<fk_column name="FK_PersonID" pk="PersonID" />
+			</fk>
+			<options><![CDATA[ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci]]></options>
+		</table>
+		<view name="V_AllPeopleWithRole" >
+			<comment><![CDATA[VIEW]]></comment>
+			<view_script><![CDATA[CREATE VIEW ${fullName} AS select `PD`.`PersonID` AS `PersonID`,`PD`.`FirstName` AS `FirstName`,`PD`.`LastName` AS `LastName`,`PD`.`Notes` AS `Notes`,`PD`.`FK_OrganizationID` AS `FK_OrganizationID`,`PD`.`Role` AS `Role`,`OP`.`OrgPath` AS `OrgPath`,`OP`.`OrganizationID` AS `OrganizationID` from ((`EventMgrDB`.`V_OrgPath` `OP` join `EventMgrDB`.`PersonToOrganization` `PO` on(`PO`.`FK_OrganizationID` = `OP`.`OrganizationID`)) join `EventMgrDB`.`V_PersonDetails` `PD` on(`PO`.`FK_PersonID` = `PD`.`PersonID` and `PO`.`FK_OrganizationID` = `PD`.`FK_OrganizationID`)) order by 3,2]]></view_script>
+			<column name="PersonID" type="INT" />
+			<column name="FirstName" type="VARCHAR" />
+			<column name="LastName" type="VARCHAR" />
+			<column name="Notes" type="VARCHAR" >
+				<comment><![CDATA[Allergy, pereferences, other - free text]]></comment>
+			</column>
+			<column name="FK_OrganizationID" type="INT" />
+			<column name="Role" type="VARCHAR" />
+			<column name="OrgPath" type="VARCHAR" />
+			<column name="OrganizationID" type="INT" />
+		</view>
+		<view name="V_OrgPath" >
+			<comment><![CDATA[VIEW]]></comment>
+			<view_script><![CDATA[CREATE VIEW ${fullName} AS select `O4`.`OrganizationID` AS `OrganizationID`,`O4`.`Name` AS `Name`,concat(`O1`.`Name`,'/',`O2`.`Name`,'/',`O3`.`Name`,'/',`O4`.`Name`) AS `OrgPath` from (((`EventMgrDB`.`Organization` `O1` join `EventMgrDB`.`Organization` `O2` on(`O2`.`FK_ParentOrganizationID` = `O1`.`OrganizationID`)) join `EventMgrDB`.`Organization` `O3` on(`O3`.`FK_ParentOrganizationID` = `O2`.`OrganizationID`)) join `EventMgrDB`.`Organization` `O4` on(`O4`.`FK_ParentOrganizationID` = `O3`.`OrganizationID`)) where `O1`.`Toplevel` = 1 union select `O3`.`OrganizationID` AS `OrganizationID`,`O3`.`Name` AS `Name`,concat(`O1`.`Name`,'/',`O2`.`Name`,'/',`O3`.`Name`) AS `OrgPath` from ((`EventMgrDB`.`Organization` `O1` join `EventMgrDB`.`Organization` `O2` on(`O2`.`FK_ParentOrganizationID` = `O1`.`OrganizationID`)) join `EventMgrDB`.`Organization` `O3` on(`O3`.`FK_ParentOrganizationID` = `O2`.`OrganizationID`)) where `O1`.`Toplevel` = 1 union select `O2`.`OrganizationID` AS `OrganizationID`,`O2`.`Name` AS `Name`,concat(`O1`.`Name`,'/',`O2`.`Name`) AS `OrgPath` from (`EventMgrDB`.`Organization` `O1` join `EventMgrDB`.`Organization` `O2` on(`O2`.`FK_ParentOrganizationID` = `O1`.`OrganizationID`)) where `O1`.`Toplevel` = 1 union select `O1`.`OrganizationID` AS `OrganizationID`,`O1`.`Name` AS `Name`,concat(`O1`.`Name`) AS `OrgPath` from `EventMgrDB`.`Organization` `O1` where `O1`.`Toplevel` = 1 order by 1]]></view_script>
+			<column name="OrganizationID" type="INT" />
+			<column name="Name" type="VARCHAR" />
+			<column name="OrgPath" type="VARCHAR" />
+		</view>
+		<view name="V_PersonDetails" >
+			<comment><![CDATA[VIEW]]></comment>
+			<view_script><![CDATA[CREATE VIEW ${fullName} AS select `P`.`PersonID` AS `PersonID`,`P`.`FirstName` AS `FirstName`,`P`.`LastName` AS `LastName`,`P`.`Notes` AS `Notes`,`PO`.`FK_OrganizationID` AS `FK_OrganizationID`,`PO`.`Role` AS `Role` from (`EventMgrDB`.`Person` `P` join `EventMgrDB`.`PersonToOrganization` `PO` on(`P`.`PersonID` = `PO`.`FK_PersonID`)) order by 1]]></view_script>
+			<column name="PersonID" type="INT" />
+			<column name="FIrstName" type="VARCHAR" />
+			<column name="LastName" type="VARCHAR" />
+			<column name="Role" type="VARCHAR" />
+			<column name="Notes" type="VARCHAR" >
+				<comment><![CDATA[Allergy, pereferences, other - free text]]></comment>
+			</column>
+			<column name="FK_OrganizationID" type="INT" />
+		</view>
+	</schema>
+	<connector name="MariaDb" database="MariaDb" host="localhost" port="3306" user="root" passwd="UEBzc3dvcmQ5MjQ=" useSystemProxy="false" />
+	<connector name="MariaDb" database="MariaDb" driver_class="org.mariadb.jdbc.Driver" driver_jar="mariadb-java-client-3.0.6.jar" driver_desc="Standard" host="localhost" port="3306" instance="EventMgrDB" user="root" passwd="UEBzc3dvcmQ5MjQ=" useSystemProxy="false" />
+	<layout name="Main Layout" id="Layout-1138" show_column_type="y" show_relation="columns" >
+		<comment><![CDATA[Main Layout]]></comment>
+		<entity schema="EventMgrDB" name="Event" color="C7F4BE" x="624" y="240" />
+		<entity schema="EventMgrDB" name="Organization" color="C7F4BE" x="48" y="80" />
+		<entity schema="EventMgrDB" name="Person" color="C7F4BE" x="48" y="416" />
+		<entity schema="EventMgrDB" name="PersonToEvent" color="C7F4BE" x="384" y="240" />
+		<entity schema="EventMgrDB" name="PersonToOrganization" color="C7F4BE" x="64" y="256" />
+		<entity schema="EventMgrDB" name="V_AllPeopleWithRole" color="3986C1" x="944" y="80" />
+		<entity schema="EventMgrDB" name="V_OrgPath" color="BED3F4" x="944" y="272" />
+		<entity schema="EventMgrDB" name="V_PersonDetails" color="BED3F4" x="944" y="384" />
+		<group name="Views" color="ECF0F7" >
+			<entity schema="EventMgrDB" name="V_AllPeopleWithRole" />
+			<entity schema="EventMgrDB" name="V_PersonDetails" />
+			<entity schema="EventMgrDB" name="V_OrgPath" />
+		</group>
+		<group name="Core Tables" color="EEF7EC" >
+			<entity schema="EventMgrDB" name="Event" />
+			<entity schema="EventMgrDB" name="PersonToEvent" />
+			<entity schema="EventMgrDB" name="Organization" />
+			<entity schema="EventMgrDB" name="PersonToOrganization" />
+			<entity schema="EventMgrDB" name="Person" />
+		</group>
+		<script name="SQL_Editor" id="Editor-15ca" language="SQL" >
+			<string><![CDATA[select * from V_AllPeopleWithRole
+]]></string>
+		</script>
+		<script name="SQL_Editor_001" id="Editor-162a" language="SQL" >
+			<string><![CDATA[select P.*,PO.FK_OrganizationID from Person P inner join PersonToOrganization PO on P.PersonID=PO.FK_PersonID]]></string>
+		</script>
+		<browser id="Browse-1158" name="Person_001" confirm_updates="y" >
+			<browse_table schema="EventMgrDB" entity="Person" x="20" y="20" width="400" height="300" />
+		</browser>
+	</layout>
+	<layout name="~Layout with Sample Tools" id="Layout-f0" show_column_type="y" show_relation="columns" >
+		<entity schema="EventMgrDB" name="Event" color="C7F4BE" x="576" y="240" />
+		<entity schema="EventMgrDB" name="Organization" color="C7F4BE" x="48" y="48" />
+		<entity schema="EventMgrDB" name="Person" color="C7F4BE" x="576" y="48" />
+		<entity schema="EventMgrDB" name="PersonToEvent" color="C7F4BE" x="336" y="48" />
+		<entity schema="EventMgrDB" name="PersonToOrganization" color="C7F4BE" x="848" y="48" />
+		<entity schema="EventMgrDB" name="V_OrgPath" color="BED3F4" x="1408" y="48" />
+		<entity schema="EventMgrDB" name="V_PersonDetails" color="BED3F4" x="1408" y="288" />
+		<script name="SQL Editor" id="Editor-119f" language="SQL" >
+			<string><![CDATA[SELECT
+	`OrganizationID`, `Toplevel`, `Name`, `FK_ParentOrganizationID`
+FROM
+	`EventMgrDB`.`Organization` n;]]></string>
+		</script>
+		<browser id="Browse-1ea" name="Relational Data Explorer" confirm_updates="y" >
+			<browse_table schema="EventMgrDB" entity="Organization" x="20" y="20" width="400" height="300" >
+				<browse_table schema="EventMgrDB" entity="PersonToOrganization" fk="FK_PersonToOrganization_Organization" x="440" y="20" width="500" height="350" >
+					<browse_table schema="EventMgrDB" entity="Person" fk="FK_PersonToOrganization_Person" x="960" y="20" width="500" height="350" record_view="y" />
+				</browse_table>
+			</browse_table>
+		</browser>
+		<query id="Query-15b4" name="Query Builder" >
+			<query_table schema="EventMgrDB" name="Organization" alias="o" x="48" y="48" >
+				<column name="OrganizationID" />
+				<column name="Toplevel" />
+				<column name="Name" />
+				<column name="FK_ParentOrganizationID" />
+				<query_table schema="EventMgrDB" name="PersonToOrganization" alias="p" x="320" y="48" fk="FK_PersonToOrganization_Organization" type="Inner Join" >
+					<column name="FK_PersonID" />
+					<column name="FK_OrganizationID" />
+					<column name="Role" />
+					<query_table schema="EventMgrDB" name="Person" alias="p1" x="560" y="48" fk="FK_PersonToOrganization_Person" type="Inner Join" >
+						<column name="PersonID" />
+						<column name="FirstName" />
+						<column name="LastName" />
+					</query_table>
+				</query_table>
+			</query_table>
+		</query>
+		<form name="Report" id="Report-1354" template="Page" css="container-fluid" view="frame" >
+			<var name="samplePageNumber" type="4" value="0" mandatory="n" />
+			<var name="sampleRecordsPerPage" type="4" value="100" mandatory="n" />
+			<body name="Body" template="Grid" pos="0,0,0,0,f,f" layout="{{-2,-2,-2,-2,-1},{-2,-2,-2,-2}}" scroll="n" html="n" >
+				<cell type="label" name="Organization Data" template="H3" pos="0,0,1,0,l,c" />
+				<cell type="chart" name="Pie" template="Pie" pos="0,1,4,1,l,c" max_records="20" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="OrganizationID" type="4" />
+						<var name="Toplevel" type="-7" />
+						<var name="Name" type="-1" />
+						<var name="FK_ParentOrganizationID" type="4" />
+						<script ><![CDATA[SELECT * FROM `EventMgrDB`.`Organization`]]></script>
+					</form_script>
+					<param name="i0" value="Name" />
+					<param name="width" value="100%" />
+					<param name="v0" value="OrganizationID" />
+					<param name="title" value="Sample Chart" />
+					<param name="height" value="400px" />
+				</cell>
+				<tableview name="sample" template="Table" css="table table-striped table-sm table-hover" pos="0,2,4,2,f,f" layout="{{-2,-2,-2,-2,-2},{-2,-2}}" scroll="n" html="n" header_rows="1" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="OrganizationID" type="4" />
+						<var name="Toplevel" type="-7" />
+						<var name="Name" type="-1" />
+						<var name="FK_ParentOrganizationID" type="4" />
+						<script ><![CDATA[SELECT * FROM `EventMgrDB`.`Organization`]]></script>
+					</form_script>
+					<cell type="label" name="OrganizationID" pos="0,0,0,0,c,c" />
+					<cell type="label" name="Toplevel" pos="1,0,1,0,c,c" />
+					<cell type="label" name="Name" pos="2,0,2,0,c,c" />
+					<cell type="label" name="FK_ParentOrganizationID" pos="3,0,3,0,c,c" />
+					<cell type="label" name="Button can open other pages." pos="4,0,4,0,c,c" />
+					<cell type="label" name="${OrganizationID}" template="Plain" pos="0,1,0,1,l,c" />
+					<cell type="label" name="${Toplevel}" template="Plain" pos="1,1,1,1,l,c" />
+					<cell type="label" name="${Name}" template="Plain" pos="2,1,2,1,l,c" />
+					<cell type="label" name="${FK_ParentOrganizationID}" template="Plain" pos="3,1,3,1,l,c" />
+					<cell type="button" name="More" template="Plain" css="btn btn-sm btn-secondary" pos="4,1,4,1,c,c" ref_id="Report-1354" />
+				</tableview>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="0,3,0,3,l,c" glyph="bi-chevron_double_left" ref_id="Report-1354" >
+					<var name="samplePageNumber" value="0" />
+				</cell>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="1,3,1,3,l,c" glyph="bi-chevron_left" ref_id="Report-1354" >
+					<var name="samplePageNumber" value="${Math.max(0,samplePageNumber-1)}" />
+				</cell>
+				<cell type="label" name="Page ${samplePageNumber+1}" pos="2,3,2,3,l,c" />
+				<cell type="href" name="" disabled="${!sampleHasNextPage}" pos="3,3,3,3,l,c" glyph="bi-chevron_right" ref_id="Report-1354" >
+					<var name="samplePageNumber" value="${( samplePageNumber+1 )}" />
+				</cell>
+			</body>
+		</form>
+	</layout>
+</project>
