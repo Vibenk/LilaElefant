@@ -55,7 +55,7 @@
 		<table name="PersonToEvent" row_count="2" spec="" >
 			<column name="FK_EventID" type="INT" length="10" jt="4" mandatory="y" unsigned="y" />
 			<column name="FK_PersonID" type="INT" length="10" jt="4" mandatory="y" unsigned="y" />
-			<column name="Created" prior="created" type="DATETIME" jt="93" >
+			<column name="CreatedDate" prior="Created" type="DATETIME" jt="93" >
 				<defo><![CDATA[current_timestamp()]]></defo>
 			</column>
 			<index name="FK_PersonToEvent_Event" unique="NORMAL" >
@@ -126,8 +126,8 @@
 			<column name="FK_OrganizationID" type="INT" />
 		</view>
 	</schema>
-	<connector name="MariaDb" database="MariaDb" driver_class="org.mariadb.jdbc.Driver" driver_jar="mariadb-java-client-3.0.6.jar" driver_desc="Standard" host="localhost" port="3306" instance="EventMgrDB" user="root" passwd="UEBzc3dvcmQ5MjQ=" useSystemProxy="false" />
 	<connector name="MariaDb" database="MariaDb" host="localhost" port="3306" user="root" passwd="UEBzc3dvcmQ5MjQ=" useSystemProxy="false" />
+	<connector name="MariaDb" database="MariaDb" driver_class="org.mariadb.jdbc.Driver" driver_jar="mariadb-java-client-3.0.6.jar" driver_desc="Standard" host="localhost" port="3306" instance="EventMgrDB" user="root" passwd="UEBzc3dvcmQ5MjQ=" useSystemProxy="false" />
 	<layout name="Main Layout" id="Layout-1138" show_column_type="y" show_relation="columns" >
 		<comment><![CDATA[Main Layout]]></comment>
 		<entity schema="EventMgrDB" name="Event" color="C7F4BE" x="624" y="240" />
@@ -145,10 +145,10 @@
 		</group>
 		<group name="Core Tables" color="EEF7EC" >
 			<entity schema="EventMgrDB" name="Event" />
-			<entity schema="EventMgrDB" name="PersonToEvent" />
 			<entity schema="EventMgrDB" name="Organization" />
 			<entity schema="EventMgrDB" name="PersonToOrganization" />
 			<entity schema="EventMgrDB" name="Person" />
+			<entity schema="EventMgrDB" name="PersonToEvent" />
 		</group>
 		<script name="SQL_Editor" id="Editor-15ca" language="SQL" >
 			<string><![CDATA[select * from V_AllPeopleWithRole

@@ -126,8 +126,8 @@
 			<column name="FK_OrganizationID" type="INT" />
 		</view>
 	</schema>
-	<connector name="MariaDb" database="MariaDb" host="localhost" port="3306" user="root" passwd="UEBzc3dvcmQ5MjQ=" useSystemProxy="false" />
 	<connector name="MariaDb" database="MariaDb" driver_class="org.mariadb.jdbc.Driver" driver_jar="mariadb-java-client-3.0.6.jar" driver_desc="Standard" host="localhost" port="3306" instance="EventMgrDB" user="root" passwd="UEBzc3dvcmQ5MjQ=" useSystemProxy="false" />
+	<connector name="MariaDb" database="MariaDb" host="localhost" port="3306" user="root" passwd="UEBzc3dvcmQ5MjQ=" useSystemProxy="false" />
 	<layout name="Main Layout" id="Layout-1138" show_column_type="y" show_relation="columns" >
 		<comment><![CDATA[Main Layout]]></comment>
 		<entity schema="EventMgrDB" name="Event" color="C7F4BE" x="624" y="240" />
@@ -135,13 +135,13 @@
 		<entity schema="EventMgrDB" name="Person" color="C7F4BE" x="48" y="416" />
 		<entity schema="EventMgrDB" name="PersonToEvent" color="C7F4BE" x="384" y="240" />
 		<entity schema="EventMgrDB" name="PersonToOrganization" color="C7F4BE" x="64" y="256" />
-		<entity schema="EventMgrDB" name="V_AllPeopleWithRole" color="3986C1" x="944" y="80" />
-		<entity schema="EventMgrDB" name="V_OrgPath" color="BED3F4" x="944" y="272" />
-		<entity schema="EventMgrDB" name="V_PersonDetails" color="BED3F4" x="944" y="384" />
+		<entity schema="EventMgrDB" name="V_AllPeopleWithRole" color="3986C1" x="896" y="80" />
+		<entity schema="EventMgrDB" name="V_OrgPath" color="BED3F4" x="896" y="272" />
+		<entity schema="EventMgrDB" name="V_PersonDetails" color="BED3F4" x="896" y="384" />
 		<group name="Views" color="ECF0F7" >
 			<entity schema="EventMgrDB" name="V_AllPeopleWithRole" />
-			<entity schema="EventMgrDB" name="V_PersonDetails" />
 			<entity schema="EventMgrDB" name="V_OrgPath" />
+			<entity schema="EventMgrDB" name="V_PersonDetails" />
 		</group>
 		<group name="Core Tables" color="EEF7EC" >
 			<entity schema="EventMgrDB" name="Event" />
