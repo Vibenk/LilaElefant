@@ -92,6 +92,21 @@
 			</fk>
 			<options><![CDATA[ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci]]></options>
 		</table>
+		<table name="Users" spec="" >
+			<column name="UserID" type="INT" jt="4" mandatory="y" unsigned="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="UserName" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="PasswordHash" type="VARCHAR" length="50" jt="12" mandatory="y" />
+			<column name="UserRole" type="SMALLINT" jt="5" mandatory="y" >
+				<defo><![CDATA[1]]></defo>
+				<comment><![CDATA[0 - Admin; 1 - Standard User; 2- Advanced User]]></comment>
+			</column>
+			<index name="pk_Users" unique="PRIMARY_KEY" >
+				<column name="UserID" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
 		<view name="V_AllPeopleWithRole" >
 			<comment><![CDATA[VIEW]]></comment>
 			<view_script><![CDATA[CREATE VIEW ${fullName} AS select `PD`.`PersonID` AS `PersonID`,`PD`.`FirstName` AS `FirstName`,`PD`.`LastName` AS `LastName`,`PD`.`Notes` AS `Notes`,`PD`.`FK_OrganizationID` AS `FK_OrganizationID`,`PD`.`Role` AS `Role`,`OP`.`OrgPath` AS `OrgPath`,`OP`.`OrganizationID` AS `OrganizationID` from ((`EventMgrDB`.`V_OrgPath` `OP` join `EventMgrDB`.`PersonToOrganization` `PO` on(`PO`.`FK_OrganizationID` = `OP`.`OrganizationID`)) join `EventMgrDB`.`V_PersonDetails` `PD` on(`PO`.`FK_PersonID` = `PD`.`PersonID` and `PO`.`FK_OrganizationID` = `PD`.`FK_OrganizationID`)) order by 3,2]]></view_script>
@@ -126,29 +141,31 @@
 			<column name="FK_OrganizationID" type="INT" />
 		</view>
 	</schema>
-	<connector name="MariaDb" database="MariaDb" host="localhost" port="3306" user="root" passwd="UEBzc3dvcmQ5MjQ=" useSystemProxy="false" />
 	<connector name="MariaDb" database="MariaDb" driver_class="org.mariadb.jdbc.Driver" driver_jar="mariadb-java-client-3.0.6.jar" driver_desc="Standard" host="localhost" port="3306" instance="EventMgrDB" user="root" passwd="UEBzc3dvcmQ5MjQ=" useSystemProxy="false" />
+	<connector name="MariaDb" database="MariaDb" host="localhost" port="3306" user="root" passwd="UEBzc3dvcmQ5MjQ=" useSystemProxy="false" />
 	<layout name="Main Layout" id="Layout-1138" show_column_type="y" show_relation="columns" >
 		<comment><![CDATA[Main Layout]]></comment>
-		<entity schema="EventMgrDB" name="Event" color="C7F4BE" x="624" y="240" />
-		<entity schema="EventMgrDB" name="Organization" color="C7F4BE" x="48" y="80" />
-		<entity schema="EventMgrDB" name="Person" color="C7F4BE" x="48" y="416" />
-		<entity schema="EventMgrDB" name="PersonToEvent" color="C7F4BE" x="384" y="240" />
-		<entity schema="EventMgrDB" name="PersonToOrganization" color="C7F4BE" x="64" y="256" />
-		<entity schema="EventMgrDB" name="V_AllPeopleWithRole" color="3986C1" x="896" y="80" />
-		<entity schema="EventMgrDB" name="V_OrgPath" color="BED3F4" x="896" y="272" />
-		<entity schema="EventMgrDB" name="V_PersonDetails" color="BED3F4" x="896" y="384" />
+		<entity schema="EventMgrDB" name="Event" color="F4D1BE" x="624" y="272" />
+		<entity schema="EventMgrDB" name="Organization" color="C7F4BE" x="48" y="112" />
+		<entity schema="EventMgrDB" name="Person" color="F4EBBE" x="48" y="448" />
+		<entity schema="EventMgrDB" name="PersonToEvent" color="F4D1BE" x="384" y="272" />
+		<entity schema="EventMgrDB" name="PersonToOrganization" color="C7F4BE" x="64" y="288" />
+		<entity schema="EventMgrDB" name="Users" color="C1D8EE" x="624" y="80" />
+		<entity schema="EventMgrDB" name="V_AllPeopleWithRole" color="3986C1" x="896" y="112" />
+		<entity schema="EventMgrDB" name="V_OrgPath" color="BED3F4" x="896" y="304" />
+		<entity schema="EventMgrDB" name="V_PersonDetails" color="BED3F4" x="896" y="416" />
 		<group name="Views" color="ECF0F7" >
 			<entity schema="EventMgrDB" name="V_AllPeopleWithRole" />
 			<entity schema="EventMgrDB" name="V_OrgPath" />
 			<entity schema="EventMgrDB" name="V_PersonDetails" />
 		</group>
 		<group name="Core Tables" color="EEF7EC" >
-			<entity schema="EventMgrDB" name="Event" />
-			<entity schema="EventMgrDB" name="Organization" />
 			<entity schema="EventMgrDB" name="PersonToOrganization" />
+			<entity schema="EventMgrDB" name="Organization" />
 			<entity schema="EventMgrDB" name="Person" />
+			<entity schema="EventMgrDB" name="Event" />
 			<entity schema="EventMgrDB" name="PersonToEvent" />
+			<entity schema="EventMgrDB" name="Users" />
 		</group>
 		<script name="SQL_Editor" id="Editor-15ca" language="SQL" >
 			<string><![CDATA[select * from V_AllPeopleWithRole
