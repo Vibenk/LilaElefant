@@ -5,9 +5,9 @@ title Magas szintű használati esetek
 skinparam actorStyle awesome
 left to right direction
 
-"Felhasználók" as Users
 "Teljeskörű \nfelhasználó" as SuperUser
-"Felhasználó" as User
+"Vezető" as User
+"Felhasználók" as Users
 "Rendszergazda" as Admin
 
 (Belépés) as Login
@@ -18,11 +18,13 @@ rectangle "Szervezet" {
     (Szervezeti szint \ntörlése) as DeleteOrg
 }
 rectangle "Személy" {
-    (Személylista megtekintése) as DisplayPeople
+    (Személylista böngészése) as BrowsePeople
     (Személy megtekintése) as DisplayPerson
     (Személy szerkesztése) as EditPerson
     (Személy létrehozása) as CreatePerson
     (Személy szervezeti \n szinthez \nrendelése) as AssignPerson
+    (Személy törlése) as DeletePerson
+    (Személy keresése) as SearchPerson
 }
 rectangle "Esemény" {
     (Esemény létrehozása) as CreateEvent
@@ -30,35 +32,40 @@ rectangle "Esemény" {
     (Esemény törlése) as DeleteEvent
     (Esemény megtekintése) as DisplayEvent
     (Személy eseményhez \nadása) as AssignPersonEvent
+    (Esemélylista böngészése) as BrowseEvents
 }
 
-EditPerson -|> DisplayPerson
-CreatePerson -up-|> DisplayPerson
+EditPerson -left-|> DisplayPerson
+'CreatePerson -up-|> DisplayPerson
 
-Users -up-> Login
-    Admin -|> Users
+Users --> Login
+    Admin --|> SuperUser
     SuperUser -right-|> User
-    User -up-|> Users
+    User -|> Users
 
 
 User -left-> DisplayHierarchy
-SuperUser -left-> CreateOrg #blue;line.dashed : kell?
-SuperUser -left-> EditOrg #blue;line.dashed : kell?
-SuperUser -left-> DeleteOrg #blue;line.dashed : kell?
-Admin -up-> CreateOrg #green;line.dashed : kell?
-Admin -up-> EditOrg #green;line.dashed : kell?
-Admin -up-> DeleteOrg #green;line.dashed : kell?
-
-SuperUser -down-> EditPerson
-SuperUser -down-> CreatePerson
-SuperUser -down-> AssignPerson
-User --> DisplayPeople
+User --> BrowsePeople
 User --> DisplayPerson
-
-User -up-> CreateEvent
+User --> EditPerson
+User -> SearchPerson
 User -up-> DisplayEvent
-User -up-> EditEvent
-User -up-> DeleteEvent
 User -up-> AssignPersonEvent
+User -> BrowseEvents
+
+
+SuperUser -left-> CreateOrg
+SuperUser -left-> EditOrg
+SuperUser -> CreatePerson
+SuperUser -> AssignPerson
+SuperUser -up-> DeleteEvent
+SuperUser -up-> CreateEvent
+SuperUser -up-> EditEvent
+
+Admin -up-> DeleteOrg
+Admin -up-> DeletePerson
+
+
+
 
 @enduml

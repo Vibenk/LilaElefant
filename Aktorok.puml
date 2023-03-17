@@ -6,29 +6,29 @@ skinparam actorStyle awesome
 left to right direction
 
 "Teljeskörű \nfelhasználó" as SuperUser
-"Felhasználó" as User
+"Vezető" as User
 "Felhasználók" as Users
 "Rendszergazda" as Admin
 
     Admin --|> Users
     note top of Admin
-        rendszergazda felhasználó, mely
-        esetlegesen szükséges lehet, ha a
-        szervezeti hierarchia karbantartása
-        nem felhasználói feladat
+        rendszergazda felhasználó, mely teljes
+        üzemeltetési jogkörrel rendelkezik, az
+        alkalmazást nem használja a napi munkában
     end note
     User -|> Users
     note right of User
-        átlagos felhasználó, mely feladata
+        az elsődleges felhasználó, mely feladata
         a szervezeti hierarchiából adott
         személyek keresése és azok új/meglévő
         eseményhez rendelése
     end note
     SuperUser -|> User
     note right of SuperUser
-        az átlagos felhasználón felül képes
-        új személyek felvételére, szervezeti
-        hierarchiában áthelyezésére, a személyek
+        (Titkár/adminisztrátor) a Vezető felhasználón
+        felül képes új személyek felvételére, szervezeti
+        hierarchia bővítésére, szervezetek áthelyezésére, 
+        személyek hierarchiában áthelyezésére, a személyek
         adatainak módosítására
     end note
     note bottom of Users
