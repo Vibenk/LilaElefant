@@ -5,12 +5,12 @@ title Aktorok - szerepkörök
 skinparam actorStyle awesome
 left to right direction
 
-"Teljeskörű \nfelhasználó" as SuperUser
-"Vezető" as User
+"Teljeskörű \nfelhasználó" as SuperUser #PaleTurquoise
+"Vezető" as User #LightCyan
 "Felhasználók" as Users
-"Rendszergazda" as Admin
+"Rendszergazda" as Admin #LightBlue
 
-    Admin --|> Users
+    Admin -|> SuperUser
     note top of Admin
         rendszergazda felhasználó, mely teljes
         üzemeltetési jogkörrel rendelkezik, az
