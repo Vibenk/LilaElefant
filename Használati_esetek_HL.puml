@@ -5,66 +5,91 @@ title Magas szintű használati esetek
 skinparam actorStyle awesome
 left to right direction
 
-"Teljeskörű \nfelhasználó" as SuperUser
-"Vezető" as User
+"Teljeskörű \nfelhasználó" as SuperUser #PaleTurquoise
+"Vezető" as User #LightCyan
 "Felhasználók" as Users
-"Rendszergazda" as Admin
+"Rendszergazda" as Admin #LightBlue
 
 (Belépés) as Login
-rectangle "Szervezet" {
-    (Szervezet böngészése) as DisplayHierarchy
-    (Szervezeti szint \nlétrehozása) as CreateOrg
-    (Szervezeti szint \nszerkesztése/ \náthelyezée) as EditOrg
-    (Szervezeti szint \ntörlése) as DeleteOrg
+rectangle "Szervezetek kezelése" {
+    (Szervezetfa böngészése) as BrowseHierarchy #LightCyan
+    (Szervezeti szint \nlétrehozása) as CreateOrg #PaleTurquoise
+    (Szervezeti szint \nszerkesztése) as EditOrg #PaleTurquoise
+    (Szervezeti szint \nszervezeti szinthez\nrendelése) as LinkOrg #PaleTurquoise
+    (Szervezeti szint \ntörlése) as DeleteOrg #LightBlue
+    (Személy szervezeti \n szinthez \nrendelése) as AssignPerson #PaleTurquoise
 }
-rectangle "Személy" {
-    (Személylista böngészése) as BrowsePeople
-    (Személy megtekintése) as DisplayPerson
-    (Személy szerkesztése) as EditPerson
-    (Személy létrehozása) as CreatePerson
-    (Személy szervezeti \n szinthez \nrendelése) as AssignPerson
-    (Személy törlése) as DeletePerson
-    (Személy keresése) as SearchPerson
+rectangle "Személyek kezelése" {
+    (Személylista böngészése) as BrowsePeople #LightCyan
+    (Személy megtekintése) as DisplayPerson #LightCyan
+    (Személy szerkesztése) as EditPerson #LightCyan
+    (Személy létrehozása) as CreatePerson #PaleTurquoise
+    (Személy törlése) as DeletePerson #LightBlue
+    (Személy keresése) as SearchPerson #LightCyan
+    (Személy személyhez \nrendelése) as LinkPerson #LightCyan
 }
-rectangle "Esemény" {
-    (Esemény létrehozása) as CreateEvent
-    (Esemény szerkesztése) as EditEvent
-    (Esemény törlése) as DeleteEvent
-    (Esemény megtekintése) as DisplayEvent
-    (Személy eseményhez \nadása) as AssignPersonEvent
-    (Esemélylista böngészése) as BrowseEvents
+rectangle "Események kezelése" {
+    (Esemény létrehozása) as CreateEvent #PaleTurquoise
+    (Esemény szerkesztése) as EditEvent #PaleTurquoise
+    (Esemény törlése) as DeleteEvent #PaleTurquoise
+    (Esemény megtekintése) as DisplayEvent #LightCyan
+    (Személy eseményhez \nrendelése) as AssignPersonEvent #LightCyan
+    (Esemélylista böngészése) as BrowseEvents #LightCyan
 }
+rectangle "Felhasználókezelés" {
+    (Felhasználó felvitele) as AddUser #LightBlue
+    (Felhasználólista böngészése) as BrowseUsers #LightBlue
+    (Felhasználó szerepkörbe rakása) as AssignUser #LightBlue
+}
+
+
 
 EditPerson -left-|> DisplayPerson
 'CreatePerson -up-|> DisplayPerson
 
-Users --> Login
-    Admin --|> SuperUser
-    SuperUser -right-|> User
-    User -|> Users
+Admin -----|> SuperUser
+SuperUser -right-|> User
+User --|> Users
+
+Users -right-> Login
+
+' User ***************
+User -left-> BrowsePeople
+User -left-> DisplayPerson
+User -left-> EditPerson
+User -left-> LinkPerson
+User -left-> SearchPerson
+
+User ---up-> BrowseHierarchy
+
+User ---> DisplayEvent
+User ---> AssignPersonEvent
+User ---> BrowseEvents
 
 
-User -left-> DisplayHierarchy
-User --> BrowsePeople
-User --> DisplayPerson
-User --> EditPerson
-User -> SearchPerson
-User -up-> DisplayEvent
-User -up-> AssignPersonEvent
-User -> BrowseEvents
+
+' SuperUser ************
+SuperUser -up-> CreatePerson
+SuperUser -up-> AssignPerson
+
+SuperUser ---up-> CreateOrg
+SuperUser ---up-> EditOrg
+SuperUser ---up-> LinkOrg
+
+SuperUser ---> DeleteEvent
+SuperUser ---> CreateEvent
+SuperUser ---> EditEvent
 
 
-SuperUser -left-> CreateOrg
-SuperUser -left-> EditOrg
-SuperUser -> CreatePerson
-SuperUser -> AssignPerson
-SuperUser -up-> DeleteEvent
-SuperUser -up-> CreateEvent
-SuperUser -up-> EditEvent
 
-Admin -up-> DeleteOrg
-Admin -up-> DeletePerson
+' Admin ************
+Admin -> DeletePerson
 
+Admin --> DeleteOrg
+
+Admin -up-> AddUser
+Admin -up-> BrowseUsers
+Admin -up-> AssignUser
 
 
 
