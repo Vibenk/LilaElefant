@@ -9,8 +9,8 @@ class Organization {
   -FK_OrganizationID : Int
   -Active : Boolean
   -Address : String
-  -CreationDate : Date
-  -LastModified : Date
+'  -CreationDate : Date
+'  -LastModified : Date
   -FK_OrganizationID : Int 
 }
 
@@ -22,8 +22,8 @@ class Person {
   -Notes : String
   -PersonalEmail : String
   -Active : Boolean
-  -CreationDate : Date
-  -LastModified : Date
+'  -CreationDate : Date
+'  -LastModified : Date
   -FK_PersonID : Int
 }
 
@@ -43,8 +43,8 @@ class Event {
   -Location : String
   -Date : Date
   -Active : Boolean
-  -CreationDate : Date
-  -LastModified : Date
+'  -CreationDate : Date
+'  -LastModified : Date
 }
 
 class RSVP {
@@ -56,7 +56,7 @@ class PersonToEvent {
   -FK_PersonID : Int
   -FK_EventID : Int
   -FK_RSVPID : Int
-  -LastModified : Date
+'  -LastModified : Date
 }
 
 class User {
@@ -66,6 +66,16 @@ class User {
 }
 
 
+class LogEntry {
+  -UserID : int
+  -Date : Date
+  -Description : String
+  -FK_EventID : int
+  -FK_OrganizationID : int
+  -FK_PersonID : int
+
+}
+
 PersonToOrganization -down-> Person
 PersonToOrganization -up-> Organization
 PersonToEvent -left-> Person
@@ -73,5 +83,10 @@ PersonToEvent -right-> Event
 PersonToEvent -up-> RSVP
 Organization -> Organization
 Person -> Person
+
+Organization --> LogEntry
+Person --> LogEntry
+Event --> LogEntry
+User --> LogEntry
 
 @enduml
