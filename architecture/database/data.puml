@@ -47,15 +47,10 @@ class Event {
 '  -LastModified : Date
 }
 
-class RSVP {
-  -RSVPID : Int
-  -Name : String
-}
-
 class PersonToEvent {
   -FK_PersonID : Int
   -FK_EventID : Int
-  -FK_RSVPID : Int
+  -RSVP : String
 '  -LastModified : Date
 }
 
@@ -80,7 +75,6 @@ PersonToOrganization -down-> Person
 PersonToOrganization -up-> Organization
 PersonToEvent -left-> Person
 PersonToEvent -right-> Event
-PersonToEvent -up-> RSVP
 Organization -> Organization
 Person -> Person
 
