@@ -1,0 +1,86 @@
+@startuml
+
+'left to right direction
+
+class Organization {
+  -OrganizationID : Int
+  -TopLevel : Boolean
+  -Name : String
+  -FK_OrganizationID : Int
+  -Active : Boolean
+  -Address : String
+'  -CreationDate : Date
+'  -LastModified : Date
+  -FK_OrganizationID : Int 
+}
+
+
+class Person {
+  -PersonID : Int
+  -FirstName : String
+  -LastName : String
+  -Notes : String
+  -PersonalEmail : String
+  -Active : Boolean
+'  -CreationDate : Date
+'  -LastModified : Date
+  -FK_PersonID : Int
+}
+
+class PersonToOrganization {
+  -FK_PersonID : Int
+  -FK_OrganizationID : Int
+  -Role : String
+  -Email : String
+  -Address : String
+}
+
+
+class Event {
+  -EventID : Int
+  -Name : String
+  -Description : String
+  -Location : String
+  -Date : Date
+  -Active : Boolean
+'  -CreationDate : Date
+'  -LastModified : Date
+}
+
+class PersonToEvent {
+  -FK_PersonID : Int
+  -FK_EventID : Int
+  -RSVP : String
+'  -LastModified : Date
+}
+
+class User {
+  -UserID : Int
+  -Name : String
+  -UserRole : Int
+}
+
+
+class LogEntry {
+  -UserID : int
+  -Date : Date
+  -Description : String
+  -FK_EventID : int
+  -FK_OrganizationID : int
+  -FK_PersonID : int
+
+}
+
+PersonToOrganization -down-> Person
+PersonToOrganization -up-> Organization
+PersonToEvent -left-> Person
+PersonToEvent -right-> Event
+Organization -> Organization
+Person -> Person
+
+Organization --> LogEntry
+Person --> LogEntry
+Event --> LogEntry
+User --> LogEntry
+
+@enduml

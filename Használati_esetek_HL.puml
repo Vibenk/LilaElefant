@@ -10,7 +10,6 @@ left to right direction
 "Felhasználók" as Users
 "Rendszergazda" as Admin #LightBlue
 
-(Belépés) as Login
 rectangle "Szervezetek kezelése" {
     (Szervezetfa böngészése) as BrowseHierarchy #LightCyan
     (Szervezeti szint \nlétrehozása) as CreateOrg #PaleTurquoise
@@ -37,6 +36,9 @@ rectangle "Események kezelése" {
     (Esemélylista böngészése) as BrowseEvents #LightCyan
 }
 rectangle "Felhasználókezelés" {
+    (Bejelentkezés) as Login
+    (Kijelentkezés) as Logout
+    (Jelszóváltoztatás) as ChangePassword
     (Felhasználó felvitele) as AddUser #LightBlue
     (Felhasználólista böngészése) as BrowseUsers #LightBlue
     (Felhasználó szerepkörbe rakása) as AssignUser #LightBlue
@@ -47,11 +49,13 @@ rectangle "Felhasználókezelés" {
 EditPerson -left-|> DisplayPerson
 'CreatePerson -up-|> DisplayPerson
 
-Admin -----|> SuperUser
+Admin ----|> SuperUser
 SuperUser -right-|> User
-User --|> Users
+User -left-|> Users
 
-Users -right-> Login
+Users -up-> Login
+Users -up-> Logout
+Users -up-> ChangePassword
 
 ' User ***************
 User -left-> BrowsePeople
