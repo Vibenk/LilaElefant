@@ -9,6 +9,8 @@ workspace {
             apiApplication = container "API alkalmazás" "A funkcionalitás biztosítása JSON/HTTPS API-n keresztül" "Java and Spring MVC" {
                 authenticationController = component "Bejelentkezés-vezérlő" "A felhasználók bejelentkezésének biztosítása" "Spring MVC Rest Controller"
                 personController = component "Személy-vezérlő" "A Személy objektumok kezelése" "Spring MVC Rest Controller"
+                eventController = component "Esemény-vezérlő" "Az Esemény objektumok kezelése" "Spring MVC Rest Controller"
+                organizationController = component "Szervezet-vezérlő" "A Szervezet objektumok kezelése" "Spring MVC Rest Controller"
             }
             database = container "Adatbázis" "Adatok tárolása és elérés biztosítása" "MariaDB" "Database"
         }
@@ -24,9 +26,15 @@ workspace {
 
         spApp -> authenticationController "API hívások" "JSON/HTTPS" "sync"
         spApp -> personController "API hívások" "JSON/HTTPS" "sync"
+        spApp -> eventController "API hívások" "JSON/HTTPS" "sync"
+        spApp -> organizationController "API hívások" "JSON/HTTPS" "sync"
+
+
 
         authenticationController -> database "Olvasás és írás" "SQL/TCP" "sync"
         personController -> database "Olvasás és írás" "SQL/TCP" "sync"
+        eventController -> database "Olvasás és írás" "SQL/TCP" "sync"
+        organizationController -> database "Olvasás és írás" "SQL/TCP" "sync"
 
 
 
