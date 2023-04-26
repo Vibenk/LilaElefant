@@ -2,8 +2,7 @@
   "id" : 1,
   "name" : "Name",
   "description" : "Description",
-  "lastModifiedDate" : "2023-04-23T17:12:30Z",
-  "lastModifiedAgent" : "structurizr-javascript",
+  "lastModifiedDate" : "2023-04-25T17:30:33Z",
   "properties" : {
     "structurizr.dsl" : "d29ya3NwYWNlIHsKCiAgICBtb2RlbCB7CiAgICAgICAgdXNlciA9IHBlcnNvbiAiRmVsaGFzem7DoWzDsyIgIkEgZmVsaGFzem7DoWzDs2ssIGFraWsgYSB3ZWJhbGthbG1hesOhc3QgaGFzem7DoWxqw6FrIgogICAgICAgIFBlcmltZXRlckQgPSBzb2Z0d2FyZVN5c3RlbSAiSGF0w6FydsOpZGVsZW0gKENsb3VkRmxhcmUpIiAiSGF0w6FydsOpZGVsbWkgbWVnb2xkw6FzIGF6IGFsa2FsbWF6w6FzIGJpenRvbnPDoWdvcyBlbMOpcsOpc8OpbmVrIGJpenRvc8OtdMOhc8OhcmEiCiAgICAgICAgQXV0aFNlcnZpY2UgPSBzb2Z0d2FyZVN5c3RlbSAiSGl0ZWxlc8OtdMWRIHN6b2xnw6FsdGF0w6FzIChHb29nbGUpIiAiT3BlbklEIGFsYXDDuiBoaXRlbGVzw610xZEgc3pvbGfDoWx0YXTDoXMiICJHb29nbGUiCiAgICAgICAgRXZlbnRNYW5hZ2VyID0gc29mdHdhcmVTeXN0ZW0gIkV2ZW50IE1hbmFnZXIiICJFZ3kgbWVnb2xkw6FzLCBhbWVseSBzZWfDrXRzw6lnZXQgbnnDump0IGF6IGVzZW3DqW55ZWsgc3plcnZlesOpc8OpaGV6IiB7CiAgICAgICAgICAgIHdlYkFwcCA9IGNvbnRhaW5lciAiV2ViYWxrYWxtYXrDoXMiICJBIHN0YXRpa3VzIHdlYiB0YXJ0YWxtYWthdCBiaXp0b3PDrXRqYSBhIGZlbGhhc3puw6Fsw7Mgc3rDoW3DoXJhIiAiSmF2YSBhbmQgU3ByaW5nIE1WQyIKICAgICAgICAgICAgc3BBcHAgPSBjb250YWluZXIgIlNpbmdsZS1QYWdlIGFsa2FsbWF6w6FzIiAiQSBmZWxoYXN6bsOhbMOzIGLDtm5nw6lzesWRasOpYmVuIG1lZ3ZhbMOzc8OtdG90dCBmZWzDvGxldGkgZnVua2Npb25hbGl0w6FzdCBiaXp0b3PDrXRqYSIgIkphdmFTY3JpcHQgYW5kIEFuZ3VsYXIiCiAgICAgICAgICAgIGFwaUFwcGxpY2F0aW9uID0gY29udGFpbmVyICJBUEkgYWxrYWxtYXrDoXMiICJBIGZ1bmtjaW9uYWxpdMOhcyBiaXp0b3PDrXTDoXNhIEpTT04vSFRUUFMgQVBJLW4ga2VyZXN6dMO8bCIgIkphdmEgYW5kIFNwcmluZyBNVkMiIHsKLy8gICAgICAgICAgICAgICAgYXV0aGVudGljYXRpb25Db250cm9sbGVyID0gY29tcG9uZW50ICJCZWplbGVudGtlesOpcy12ZXrDqXJsxZEiICJBIGZlbGhhc3puw6Fsw7NrIGJlamVsZW50a2V6w6lzw6luZWsgYml6dG9zw610w6FzYSIgIlNwcmluZyBNVkMgUmVzdCBDb250cm9sbGVyIgogICAgICAgICAgICAgICAgcGVyc29uQ29udHJvbGxlciA9IGNvbXBvbmVudCAiU3plbcOpbHktdmV6w6lybMWRIiAiQSBTemVtw6lseSBvYmpla3R1bW9rIGtlemVsw6lzZSIgIlNwcmluZyBNVkMgUmVzdCBDb250cm9sbGVyIgogICAgICAgICAgICAgICAgZXZlbnRDb250cm9sbGVyID0gY29tcG9uZW50ICJFc2Vtw6lueS12ZXrDqXJsxZEiICJBeiBFc2Vtw6lueSBvYmpla3R1bW9rIGtlemVsw6lzZSIgIlNwcmluZyBNVkMgUmVzdCBDb250cm9sbGVyIgogICAgICAgICAgICAgICAgb3JnYW5pemF0aW9uQ29udHJvbGxlciA9IGNvbXBvbmVudCAiU3plcnZlemV0LXZlesOpcmzFkSIgIkEgU3plcnZlemV0IG9iamVrdHVtb2sga2V6ZWzDqXNlIiAiU3ByaW5nIE1WQyBSZXN0IENvbnRyb2xsZXIiCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZGF0YWJhc2UgPSBjb250YWluZXIgIkFkYXRiw6F6aXMiICJBZGF0b2sgdMOhcm9sw6FzYSDDqXMgZWzDqXLDqXMgYml6dG9zw610w6FzYSIgIk1hcmlhREIiICJEYXRhYmFzZSIKICAgICAgICB9CiAgICAgICAgdXNlciAtPiBQZXJpbWV0ZXJEICJPbGRhbCBlbMOpcsOpc2kga8OpcsOpc2VrIiAiSFRUUFMiICJzeW5jIgogICAgICAgIFBlcmltZXRlckQgLT4gdXNlciAiT2xkYWwgZWzDqXLDqXNpIGvDqXLDqXNlayBraXN6b2xnw6Fsw6FzYSIgIkhUVFBTIiAic3luYyIKICAgICAgICBQZXJpbWV0ZXJEIC0+IEV2ZW50TWFuYWdlciAiT2xkYWwgZWzDqXLDqXNpIGvDqXLDqXNlayB0b3bDoWJiw610w6FzYSIgIkhUVFBTIiAic3luYyIKICAgICAgICBFdmVudE1hbmFnZXIgLT4gUGVyaW1ldGVyRCAiT2xkYWwgZWzDqXLDqXNpIGvDqXLDqXNlayB0b3bDoWJiw610w6Fzw6FuYWsga2lzem9sZ8OhbMOhc2EiICJIVFRQUyIgInN5bmMiCi8vICAgICAgICB1c2VyIC0+IEF1dGhTZXJ2aWNlICJPcGVuSUQgaGl0ZWxlc8OtdMOpcyBpZ8OpbnkiICJIVFRQUyIgInN5bmMiCi8vICAgICAgICBBdXRoU2VydmljZSAtPiB1c2VyICJPcGVuSUQgaGl0ZWxlc8OtdMOpc2kgYWRhdG9rIiAiSFRUUFMiICJzeW5jIgoKCi8vICAgICAgICB1c2VyIC0+IHdlYkFwcCAiQXogb2xkYWwgbWVnbMOhdG9nYXTDoXNhIiAiSFRUUFMiICJzeW5jIgovLyAgICAgICAgdXNlciAtPiBzcEFwcCAiRmVsaGFzem7DoWzDs2kgZmVsw7xsZXRpIGZ1bmtjacOzayBoYXN6bsOhbGF0YSIgIkhUVFBTIiAic3luYyIKICAgICAgICBQZXJpbWV0ZXJEIC0+IHdlYkFwcCAiQXogb2xkYWwgbWVnbMOhdG9nYXTDoXNhIiAiSFRUUFMiICJzeW5jIgogICAgICAgIFBlcmltZXRlckQgLT4gc3BBcHAgIkZlbGhhc3puw6Fsw7NpIGZlbMO8bGV0aSBmdW5rY2nDs2sgaGFzem7DoWxhdGEiICJIVFRQUyIgInN5bmMiCiAgICAgICAgc3BBcHAgLT4gQXV0aFNlcnZpY2UgIk9wZW5JRCBoaXRlbGVzw610w6lzIGlnw6lueSIgIkhUVFBTIiAic3luYyIKICAgICAgICBBdXRoU2VydmljZSAtPiBzcEFwcCAiT3BlbklEIGhpdGVsZXPDrXTDqXNpIGFkYXRvayIgIkhUVFBTIiAic3luYyIKCiAgICAgICAgd2ViQXBwIC0+IHNwQXBwICJBIGZlbGhhc3puw6Fsw7Mgd2ViIGLDtm5nw6lzesWRasOpbmVrIGtpc3pvbGfDoWzDoXNhIiAiSFRUUFMiICJzeW5jIgoKLy8gICAgICAgIGFwaUFwcGxpY2F0aW9uIC0+IGRhdGFiYXNlICJPbHZhc8OhcyDDqXMgw61yw6FzIiAiU1FML1RDUCIgInN5bmMiCgovLyAgICAgICAgc3BBcHAgLT4gYXV0aGVudGljYXRpb25Db250cm9sbGVyICJBUEkgaMOtdsOhc29rIiAiSlNPTi9IVFRQUyIgInN5bmMiCiAgICAgICAgc3BBcHAgLT4gcGVyc29uQ29udHJvbGxlciAiQVBJIGjDrXbDoXNvayIgIkpTT04vSFRUUFMiICJzeW5jIgogICAgICAgIHNwQXBwIC0+IGV2ZW50Q29udHJvbGxlciAiQVBJIGjDrXbDoXNvayIgIkpTT04vSFRUUFMiICJzeW5jIgogICAgICAgIHNwQXBwIC0+IG9yZ2FuaXphdGlvbkNvbnRyb2xsZXIgIkFQSSBow612w6Fzb2siICJKU09OL0hUVFBTIiAic3luYyIKCgoKLy8gICAgICAgIGF1dGhlbnRpY2F0aW9uQ29udHJvbGxlciAtPiBkYXRhYmFzZSAiT2x2YXPDoXMgw6lzIMOtcsOhcyIgIlNRTC9UQ1AiICJzeW5jIgogICAgICAgIHBlcnNvbkNvbnRyb2xsZXIgLT4gZGF0YWJhc2UgIk9sdmFzw6FzIMOpcyDDrXLDoXMiICJTUUwvVENQIiAic3luYyIKICAgICAgICBldmVudENvbnRyb2xsZXIgLT4gZGF0YWJhc2UgIk9sdmFzw6FzIMOpcyDDrXLDoXMiICJTUUwvVENQIiAic3luYyIKICAgICAgICBvcmdhbml6YXRpb25Db250cm9sbGVyIC0+IGRhdGFiYXNlICJPbHZhc8OhcyDDqXMgw61yw6FzIiAiU1FML1RDUCIgInN5bmMiCgoKCgovKiAgICAgICAgdXNlciAtPiB3ZWJhcHAgIkvDqXLDqXNlayBlbGvDvGxkw6lzZSIgImh0dHAiICJzeW5jIgogICAgICAgIHVzZXIgLT4gd2ViYXBwICJIaXRlbGVzw610w6lzIiAiaHR0cCIgInN5bmMiCiAgICAgICAgd2ViYXBwIC0+IHVzZXIgIkvDqXLDqXNlayBraXN6b2xnw6Fsw6FzYSIgImh0dHAiICJzeW5jIgogICAgICAgIHdlYmFwcCAtPiBkYXRhYmFzZSAiQWRhdG9rIG9sdmFzw6FzYSDDqXMgw61yw6FzYSIKKi8KICAgIH0KCiAgICB2aWV3cyB7CiAgICAgICAgc3lzdGVtTGFuZHNjYXBlIHsKICAgICAgICAgICAgaW5jbHVkZSB1c2VyCiAgICAgICAgICAgIGluY2x1ZGUgRXZlbnRNYW5hZ2VyCiAgICAgICAgICAgIGluY2x1ZGUgUGVyaW1ldGVyRAogICAgICAgICAgICBpbmNsdWRlIEF1dGhTZXJ2aWNlCiAgICAgICAgICAgIGF1dG9MYXlvdXQKICAgICAgICB9CgovKiAgICAgICAgc3lzdGVtQ29udGV4dCBFdmVudE1hbmFnZXIgewogICAgICAgICAgICBpbmNsdWRlIHVzZXIKICAgICAgICAgICAgaW5jbHVkZSBFdmVudE1hbmFnZXIKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KKi8KICAgICAgICBjb250YWluZXIgRXZlbnRNYW5hZ2VyIHsKICAgICAgICAgICAgaW5jbHVkZSB1c2VyCiAgICAgICAgICAgIGluY2x1ZGUgKiAKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KCiAgICAgICAgY29tcG9uZW50IGFwaUFwcGxpY2F0aW9uICJDb21wb25lbnRzIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBhdXRvTGF5b3V0CiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJUaGUgY29tcG9uZW50IGRpYWdyYW0gZm9yIHRoZSBBUEkgQXBwbGljYXRpb24uIgogICAgICAgIH0KCgogICAgICAgIHRoZW1lIGRlZmF1bHQKCiAgICAgICAgc3R5bGVzIHsKICAgICAgICAgICAgZWxlbWVudCAiUGVyc29uIiB7CiAgICAgICAgICAgICAgICBjb2xvciAjZmZmZmZmCiAgICAgICAgICAgICAgICBmb250U2l6ZSAyMgogICAgICAgICAgICAgICAgc2hhcGUgUGVyc29uCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiU29mdHdhcmUgU3lzdGVtIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICMxMTY4YmQKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJDb250YWluZXIiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzQzOGRkNQogICAgICAgICAgICAgICAgY29sb3IgI2ZmZmZmZgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIldlYiBCcm93c2VyIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBXZWJCcm93c2VyCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiRGF0YWJhc2UiIHsKICAgICAgICAgICAgICAgIHNoYXBlIEN5bGluZGVyCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiQ29tcG9uZW50IiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICM4NWJiZjAKICAgICAgICAgICAgICAgIGNvbG9yICMwMDAwMDAKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJGYWlsb3ZlciIgewogICAgICAgICAgICAgICAgb3BhY2l0eSAyNQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQp9Cg=="
   },
@@ -36,11 +35,11 @@
       "name" : "Határvédelem (CloudFlare)",
       "description" : "Határvédelmi megoldás az alkalmazás biztonságos elérésének biztosítására",
       "relationships" : [ {
-        "id" : "16",
+        "id" : "13",
         "tags" : "Relationship,sync",
         "sourceId" : "2",
-        "destinationId" : "5",
-        "description" : "Az oldal meglátogatása",
+        "destinationId" : "1",
+        "description" : "Oldal elérési kérések kiszolgálása",
         "technology" : "HTTPS"
       }, {
         "id" : "14",
@@ -50,11 +49,11 @@
         "description" : "Oldal elérési kérések továbbítása",
         "technology" : "HTTPS"
       }, {
-        "id" : "13",
+        "id" : "16",
         "tags" : "Relationship,sync",
         "sourceId" : "2",
-        "destinationId" : "1",
-        "description" : "Oldal elérési kérések kiszolgálása",
+        "destinationId" : "5",
+        "description" : "Az oldal meglátogatása",
         "technology" : "HTTPS"
       }, {
         "id" : "17",
@@ -75,19 +74,19 @@
       "name" : "Hitelesítő szolgáltatás (Google)",
       "description" : "OpenID alapú hitelesítő szolgáltatás",
       "relationships" : [ {
-        "id" : "21",
-        "sourceId" : "3",
-        "destinationId" : "4",
-        "description" : "OpenID hitelesítési adatok",
-        "technology" : "HTTPS",
-        "linkedRelationshipId" : "20"
-      }, {
         "id" : "20",
         "tags" : "Relationship,sync",
         "sourceId" : "3",
         "destinationId" : "6",
         "description" : "OpenID hitelesítési adatok",
         "technology" : "HTTPS"
+      }, {
+        "id" : "21",
+        "sourceId" : "3",
+        "destinationId" : "4",
+        "description" : "OpenID hitelesítési adatok",
+        "technology" : "HTTPS",
+        "linkedRelationshipId" : "20"
       } ],
       "location" : "Unspecified",
       "documentation" : { }
@@ -100,50 +99,22 @@
       "name" : "Event Manager",
       "description" : "Egy megoldás, amely segítséget nyújt az események szervezéséhez",
       "relationships" : [ {
-        "id" : "19",
-        "sourceId" : "4",
-        "destinationId" : "3",
-        "description" : "OpenID hitelesítés igény",
-        "technology" : "HTTPS",
-        "linkedRelationshipId" : "18"
-      }, {
         "id" : "15",
         "tags" : "Relationship,sync",
         "sourceId" : "4",
         "destinationId" : "2",
         "description" : "Oldal elérési kérések továbbításának kiszolgálása",
         "technology" : "HTTPS"
+      }, {
+        "id" : "19",
+        "sourceId" : "4",
+        "destinationId" : "3",
+        "description" : "OpenID hitelesítés igény",
+        "technology" : "HTTPS",
+        "linkedRelationshipId" : "18"
       } ],
       "location" : "Unspecified",
       "containers" : [ {
-        "id" : "5",
-        "tags" : "Element,Container",
-        "properties" : {
-          "structurizr.dsl.identifier" : "webapp"
-        },
-        "name" : "Webalkalmazás",
-        "description" : "A statikus web tartalmakat biztosítja a felhasználó számára",
-        "relationships" : [ {
-          "id" : "22",
-          "tags" : "Relationship,sync",
-          "sourceId" : "5",
-          "destinationId" : "6",
-          "description" : "A felhasználó web böngészőjének kiszolgálása",
-          "technology" : "HTTPS"
-        } ],
-        "technology" : "Java and Spring MVC",
-        "documentation" : { }
-      }, {
-        "id" : "11",
-        "tags" : "Element,Container,Database",
-        "properties" : {
-          "structurizr.dsl.identifier" : "database"
-        },
-        "name" : "Adatbázis",
-        "description" : "Adatok tárolása és elérés biztosítása",
-        "technology" : "MariaDB",
-        "documentation" : { }
-      }, {
         "id" : "7",
         "tags" : "Element,Container",
         "properties" : {
@@ -217,6 +188,34 @@
         } ],
         "documentation" : { }
       }, {
+        "id" : "5",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "webapp"
+        },
+        "name" : "Webalkalmazás",
+        "description" : "A statikus web tartalmakat biztosítja a felhasználó számára",
+        "relationships" : [ {
+          "id" : "22",
+          "tags" : "Relationship,sync",
+          "sourceId" : "5",
+          "destinationId" : "6",
+          "description" : "A felhasználó web böngészőjének kiszolgálása",
+          "technology" : "HTTPS"
+        } ],
+        "technology" : "Java and Spring MVC",
+        "documentation" : { }
+      }, {
+        "id" : "11",
+        "tags" : "Element,Container,Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "database"
+        },
+        "name" : "Adatbázis",
+        "description" : "Adatok tárolása és elérés biztosítása",
+        "technology" : "MariaDB",
+        "documentation" : { }
+      }, {
         "id" : "6",
         "tags" : "Element,Container",
         "properties" : {
@@ -239,13 +238,6 @@
           "description" : "API hívások",
           "technology" : "JSON/HTTPS"
         }, {
-          "id" : "26",
-          "tags" : "Relationship,sync",
-          "sourceId" : "6",
-          "destinationId" : "10",
-          "description" : "API hívások",
-          "technology" : "JSON/HTTPS"
-        }, {
           "id" : "24",
           "sourceId" : "6",
           "destinationId" : "7",
@@ -257,6 +249,13 @@
           "tags" : "Relationship,sync",
           "sourceId" : "6",
           "destinationId" : "9",
+          "description" : "API hívások",
+          "technology" : "JSON/HTTPS"
+        }, {
+          "id" : "26",
+          "tags" : "Relationship,sync",
+          "sourceId" : "6",
+          "destinationId" : "10",
           "description" : "API hívások",
           "technology" : "JSON/HTTPS"
         } ],
@@ -271,10 +270,6 @@
     "systemLandscapeViews" : [ {
       "key" : "SystemLandscape-001",
       "order" : 1,
-      "dimensions" : {
-        "width" : 874,
-        "height" : 2600
-      },
       "automaticLayout" : {
         "implementation" : "Graphviz",
         "rankDirection" : "TopBottom",
@@ -285,68 +280,40 @@
       },
       "enterpriseBoundaryVisible" : true,
       "relationships" : [ {
-        "id" : "15",
-        "vertices" : [ {
-          "x" : 587,
-          "y" : 1350
-        } ]
+        "id" : "15"
       }, {
-        "id" : "14",
-        "vertices" : [ {
-          "x" : 287,
-          "y" : 1350
-        } ]
+        "id" : "14"
       }, {
-        "id" : "13",
-        "vertices" : [ {
-          "x" : 587,
-          "y" : 725
-        } ]
+        "id" : "13"
       }, {
-        "id" : "12",
-        "vertices" : [ {
-          "x" : 287,
-          "y" : 725
-        } ]
+        "id" : "12"
       }, {
-        "id" : "21",
-        "vertices" : [ {
-          "x" : 587,
-          "y" : 1950
-        } ]
+        "id" : "21"
       }, {
-        "id" : "19",
-        "vertices" : [ {
-          "x" : 287,
-          "y" : 1950
-        } ]
+        "id" : "19"
       } ],
       "elements" : [ {
         "id" : "1",
-        "x" : 237,
-        "y" : 200
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "2",
-        "x" : 212,
-        "y" : 900
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "3",
-        "x" : 212,
-        "y" : 2100
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "4",
-        "x" : 212,
-        "y" : 1500
+        "x" : 0,
+        "y" : 0
       } ]
     } ],
     "containerViews" : [ {
       "key" : "Container-001",
       "order" : 2,
       "softwareSystemId" : "4",
-      "dimensions" : {
-        "width" : 4570,
-        "height" : 1320
-      },
       "automaticLayout" : {
         "implementation" : "Graphviz",
         "rankDirection" : "LeftRight",
@@ -357,82 +324,58 @@
       },
       "externalSoftwareSystemBoundariesVisible" : true,
       "relationships" : [ {
-        "id" : "18",
-        "vertices" : [ {
-          "x" : 2906,
-          "y" : 786
-        } ]
-      }, {
-        "id" : "17",
-        "vertices" : [ {
-          "x" : 2100,
-          "y" : 669
-        } ]
+        "id" : "18"
       }, {
         "id" : "28"
       }, {
+        "id" : "17"
+      }, {
         "id" : "16"
       }, {
-        "id" : "13",
-        "vertices" : [ {
-          "x" : 762,
-          "y" : 523
-        } ]
+        "id" : "13"
       }, {
         "id" : "24"
       }, {
-        "id" : "12",
-        "vertices" : [ {
-          "x" : 762,
-          "y" : 823
-        } ]
+        "id" : "12"
       }, {
         "id" : "22"
       }, {
-        "id" : "20",
-        "vertices" : [ {
-          "x" : 3093,
-          "y" : 551
-        } ]
+        "id" : "20"
       } ],
       "elements" : [ {
         "id" : "11",
-        "x" : 3900,
-        "y" : 219
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "1",
-        "x" : 200,
-        "y" : 473
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "2",
-        "x" : 900,
-        "y" : 523
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "3",
-        "x" : 3150,
-        "y" : 819
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "5",
-        "x" : 1650,
-        "y" : 219
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "6",
-        "x" : 2400,
-        "y" : 219
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "7",
-        "x" : 3150,
-        "y" : 219
+        "x" : 0,
+        "y" : 0
       } ]
     } ],
     "componentViews" : [ {
       "key" : "Components",
       "order" : 3,
       "description" : "The component diagram for the API Application.",
-      "dimensions" : {
-        "width" : 2390,
-        "height" : 1900
-      },
       "automaticLayout" : {
         "implementation" : "Graphviz",
         "rankDirection" : "TopBottom",
@@ -458,24 +401,24 @@
       } ],
       "elements" : [ {
         "id" : "11",
-        "x" : 970,
-        "y" : 1400
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "6",
-        "x" : 970,
-        "y" : 200
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "8",
-        "x" : 970,
-        "y" : 800
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "9",
-        "x" : 220,
-        "y" : 800
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "10",
-        "x" : 1720,
-        "y" : 800
+        "x" : 0,
+        "y" : 0
       } ]
     } ],
     "configuration" : {
@@ -511,7 +454,6 @@
       },
       "themes" : [ "https://static.structurizr.com/themes/default/theme.json" ],
       "terminology" : { },
-      "metadataSymbols" : "SquareBrackets",
       "lastSavedView" : "SystemLandscape-001"
     }
   }
