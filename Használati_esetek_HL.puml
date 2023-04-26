@@ -11,28 +11,28 @@ left to right direction
 "Rendszergazda" as Admin #LightBlue
 
 rectangle "Szervezetek kezelése" {
-    (Szervezetfa böngészése) as BrowseHierarchy #LightCyan
     (Szervezeti szint \nlétrehozása) as CreateOrg #PaleTurquoise
-    (Szervezeti szint \nszerkesztése) as EditOrg #PaleTurquoise
     (Szervezeti szint \nszervezeti szinthez\nrendelése) as LinkOrg #PaleTurquoise
+    (Szervezetfa böngészése) as BrowseHierarchy #LightCyan
+    (Szervezeti szint \nszerkesztése) as EditOrg #PaleTurquoise
     (Szervezeti szint \ntörlése) as DeleteOrg #LightBlue
     (Személy szervezeti \n szinthez \nrendelése) as AssignPerson #PaleTurquoise
 }
 rectangle "Személyek kezelése" {
-    (Személylista böngészése) as BrowsePeople #LightCyan
-    (Személy megtekintése) as DisplayPerson #LightCyan
-    (Személy szerkesztése) as EditPerson #LightCyan
     (Személy létrehozása) as CreatePerson #PaleTurquoise
-    (Személy törlése) as DeletePerson #LightBlue
+    (Személylista böngészése) as BrowsePeople #LightCyan
     (Személy keresése) as SearchPerson #LightCyan
-    (Személy személyhez \nrendelése) as LinkPerson #LightCyan
+    (Személy szerkesztése) as EditPerson #LightCyan
+    (Személy megtekintése) as DisplayPerson #LightCyan
+    (Személy törlése) as DeletePerson #LightBlue
+'    (Személy személyhez \nrendelése) as LinkPerson #LightCyan
 }
 rectangle "Események kezelése" {
     (Esemény létrehozása) as CreateEvent #PaleTurquoise
     (Esemény szerkesztése) as EditEvent #PaleTurquoise
     (Esemény törlése) as DeleteEvent #PaleTurquoise
     (Esemény megtekintése) as DisplayEvent #LightCyan
-    (Személy eseményhez \nrendelése) as AssignPersonEvent #LightCyan
+    (Személy eseményhez \nrendelése, hozzárendelés \ntörlése) as AssignPersonEvent #LightCyan
     (Esemélylista böngészése) as BrowseEvents #LightCyan
 }
 rectangle "Felhasználókezelés" {
@@ -41,7 +41,7 @@ rectangle "Felhasználókezelés" {
     (Jelszóváltoztatás) as ChangePassword
     (Felhasználó felvitele) as AddUser #LightBlue
     (Felhasználólista böngészése) as BrowseUsers #LightBlue
-    (Felhasználó szerepkörbe rakása) as AssignUser #LightBlue
+    (Felhasználó szerepkörbe \nrakása) as AssignUser #LightBlue
 }
 
 
@@ -61,7 +61,7 @@ Users -up-> ChangePassword
 User -left-> BrowsePeople
 User -left-> DisplayPerson
 User -left-> EditPerson
-User -left-> LinkPerson
+'User -left-> LinkPerson
 User -left-> SearchPerson
 
 User ---up-> BrowseHierarchy

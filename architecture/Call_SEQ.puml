@@ -1,0 +1,52 @@
+@startuml
+title Angular frontend with Spring backend and data access sequence diagram
+
+skinparam sequenceArrowThickness 1.5
+skinparam BoxPadding 20
+skinparam Shadowing true
+skinparam ParticipantPadding 10
+
+box "Event-Planner-UI (Angular frontend)"
+participant AngularApp
+participant AngularComponent
+participant AngularService
+
+box "Event-Planner (Spring backend)"
+participant SpringController
+participant SpringService
+participant "Spring Hybernate/JPA \n<DataAccess>" as DataAccess
+
+box "eventmgrdb (Mariadb database)"
+database "MariaDB database" as Database
+
+note left of AngularApp: User interacts with the app\nand triggers an HTTP request
+
+AngularApp -> AngularComponent: 1. Felhasználói művelet
+activate AngularApp
+activate AngularComponent
+AngularComponent -> AngularService: 2. Szolgáltatás hívása
+activate AngularService
+AngularService -> AngularService: 3. A kérés összeállítása
+AngularService -> SpringController: 4. HTTP kérés
+activate SpringController
+SpringController -> SpringService: 5. Szolgáltatás hívása
+activate SpringService
+SpringService -> DataAccess: 6. Adatelérési réteg hívása
+activate DataAccess
+DataAccess -> Database: 7. Lekérdezés végrehajtása
+activate Database
+Database --> DataAccess: 8. Adatok visszaadása
+deactivate Database
+DataAccess --> SpringService: 9. Adatok visszaadása
+deactivate DataAccess
+SpringService --> SpringController: 10. Adatok visszaadása
+deactivate SpringService
+SpringController --> AngularService: 11. HTTP válasz
+deactivate SpringController
+AngularService --> AngularComponent: 12. Adatok visszaadása
+deactivate AngularService
+AngularComponent --> AngularApp: 13. Képernyő frissítése
+deactivate AngularComponent
+deactivate AngularApp
+
+@enduml
